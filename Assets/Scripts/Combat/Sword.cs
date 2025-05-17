@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -11,12 +12,14 @@ public class Sword : MonoBehaviour
     public float POSITION_WINDOW = 0.6f;
     public float ROTATION_WINDOW = 12f;
 
-    Camera camera;
+    private Camera camera;
+    private ParticleSystem parryVFX;
 
     void Awake()
     {
         camera = Camera.main;
         hand = transform.parent;
+        parryVFX = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,27 @@ public class Sword : MonoBehaviour
         PrintGuardDirection(GetCurrentGuard());
 
 
+    }
+
+    public void OnMonsterAttack(AtkDirection dir)
+    {
+        StartCoroutine(CheckParry(dir));
+    }
+
+    private IEnumerator CheckParry(AtkDirection dir)
+    {
+        for(float i = 0; i < 1f; i += Time.deltaTime)
+        {
+            if (dir == GetCurrentGuard())
+            {
+                parryVFX.Play();
+                break;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
     }
 
     AtkDirection GetCurrentGuard()
@@ -73,7 +97,7 @@ public class Sword : MonoBehaviour
         switch (dir)
         {
             case AtkDirection.None:
-                //print("defenseless");
+                print("defenseless");
                 break;
             case AtkDirection.Left:
                 print("Left Guard");
