@@ -11,8 +11,11 @@ public class Sword : MonoBehaviour
     public float POSITION_WINDOW = 0.6f;
     public float ROTATION_WINDOW = 12f;
 
+    Camera camera;
+
     void Awake()
     {
+        camera = Camera.main;
         hand = transform.parent;
     }
 
@@ -21,7 +24,7 @@ public class Sword : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            debugText.text = "Pos " + hand.transform.localPosition.ToString() + " Rot " + hand.transform.localEulerAngles;
+            debugText.text = "Pos " + relativePosition() + " Rot " + relativeRotation();
 
         }
 
@@ -47,11 +50,11 @@ public class Sword : MonoBehaviour
 
     bool CheckStance(SwordStance stance)
     {
-        Vector3 posDifference = hand.localPosition - stance.position;
+        Vector3 posDifference = relativePosition() - stance.position;
         Vector3 rotationDifference =  new Vector3( /* DeltaAngle returns the shortest distance between 2 angles. ex: DeltaAngle(355 , 5) = 10 */
-            Mathf.DeltaAngle(stance.rotation.x, hand.localEulerAngles.x),
-            Mathf.DeltaAngle(stance.rotation.y, hand.localEulerAngles.y),
-            Mathf.DeltaAngle(stance.rotation.z, hand.localEulerAngles.z)
+            Mathf.DeltaAngle(stance.rotation.x, relativeRotation().x),
+            Mathf.DeltaAngle(stance.rotation.y, relativeRotation().y),
+            Mathf.DeltaAngle(stance.rotation.z, relativeRotation().z)
         );
 
         if (Mathf.Abs(posDifference.x) > POSITION_WINDOW) { return false; }
@@ -82,6 +85,21 @@ public class Sword : MonoBehaviour
                 print("Up guard");
                 break;
         }
+    }
+
+    Vector3 relativeRotation()
+    {
+        Quaternion cameraWorldRotationInverse = Quaternion.Inverse(camera.transform.rotation);
+        Quaternion objectRotationRelativeCamera = cameraWorldRotationInverse * hand.rotation;
+
+        // You can then access the Euler angles of this relative rotation if needed:
+        Vector3 relativeEulerAngles = objectRotationRelativeCamera.eulerAngles;
+        return relativeEulerAngles;
+    }
+
+    Vector3 relativePosition()
+    {
+        return camera.transform.InverseTransformPoint(hand.position);
     }
 
 }
