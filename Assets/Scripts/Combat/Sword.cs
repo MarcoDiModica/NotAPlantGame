@@ -73,7 +73,7 @@ public class Sword : MonoBehaviour
         switch (dir)
         {
             case AtkDirection.None:
-               // print("defenseless");
+                //print("defenseless");
                 break;
             case AtkDirection.Left:
                 print("Left Guard");

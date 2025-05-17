@@ -11395,6 +11395,8 @@ MonoBehaviour:
   debugText: {fileID: 2083014466}
   guards:
   - {fileID: 11400000, guid: 1ee5f72663456b947bfeb86dd450c155, type: 2}
+  - {fileID: 11400000, guid: 513481aaf26237e4a8599b0b09e03017, type: 2}
+  - {fileID: 11400000, guid: 75ca670fb6764f94f926a59182b85c5e, type: 2}
   POSITION_WINDOW: 0.6
   ROTATION_WINDOW: 15
 --- !u!1 &812481520
@@ -11498,7 +11500,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 374.57132, y: 374.57132, z: 374.57132}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15715754}
@@ -18232,7 +18234,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.82623, y: 186.3664, z: -81.31186}
+  m_LocalPosition: {x: 11.586217, y: 87.43376, z: -6.489505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
