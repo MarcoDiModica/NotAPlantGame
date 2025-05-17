@@ -1,6 +1,6 @@
 using System.Collections;
 using TMPro;
-
+using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -18,6 +18,8 @@ public class Sword : MonoBehaviour
     private SwordSfx swordSFX;
 
     public XRNode controllerNode = XRNode.RightHand;
+
+    public UnityEvent playerHitEvent;
 
     void Awake()
     {
@@ -54,14 +56,19 @@ public class Sword : MonoBehaviour
             {
                 parryVFX?.Play();
                 swordSFX?.PlaySwordSFX();
-                SendHapticImpulse(controllerNode, 1, 0.3f);
-                break;
+                SwordVibration.SendHapticImpulse(controllerNode, 1, 0.3f);
+                yield break ;
             }
             else
             {
                 yield return null;
             }
         }
+
+        //NO Parry on time
+
+        playerHitEvent?.Invoke();
+
     }
 
     AtkDirection GetCurrentGuard()
@@ -131,15 +138,6 @@ public class Sword : MonoBehaviour
     Vector3 relativePosition()
     {
         return camera.transform.InverseTransformPoint(hand.position);
-    }
-
-    void SendHapticImpulse(XRNode hand, float amplitude, float duration)
-    {
-        InputDevice device = InputDevices.GetDeviceAtXRNode(hand);
-        if (device.isValid && device.TryGetHapticCapabilities(out HapticCapabilities capabilities) && capabilities.supportsImpulse)
-        {
-            device.SendHapticImpulse(0, amplitude, duration);
-        }
     }
 
 

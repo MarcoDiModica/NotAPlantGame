@@ -11,7 +11,7 @@ public class OpenedState : IState
 
     public override void Enter()
     {
-
+        monster.Opened();
     }
 
     public override void Exit()
@@ -28,7 +28,10 @@ public class OpenedState : IState
         if (collision.CompareTag("Sword"))
         {
             //Receives Damage
+            SwordVibration.SendHapticImpulse( UnityEngine.XR.XRNode.RightHand , 1, 0.3f);
             monster.BlinkDamage();
+
+            CallTransition(State.ATTACKING, this);
 
         }
     }

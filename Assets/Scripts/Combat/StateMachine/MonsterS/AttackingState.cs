@@ -14,6 +14,7 @@ public class AttackingState : IState
     public override void Enter()
     {
         coolDownTimer = 2f;
+        monster.Attacking();
     }
 
     public override void Exit()
@@ -29,6 +30,12 @@ public class AttackingState : IState
             coolDownTimer = monster.baseTimer + Random.Range(-monster.timerVariation.x, +monster.timerVariation.y);
             //PerformAtk
             monster.atkEvent?.Invoke((AtkDirection)Random.Range(0, 3));
+
+            if(Random.value <= monster.chanceForOpening)
+            {
+                CallTransition(State.OPENED, this);
+            }
+
         }
     }
 

@@ -16,21 +16,37 @@ public class Monster : MonoBehaviour
 
     private MeshRenderer renderer;
 
+    [Header("Fields for opened state")]
+    public float chanceForOpening = 0.4f;
+    private ParticleSystem hitVFX;
+
+    private SwordSfx sfx;
+    private AudioSource source;
+
     void Awake()
     {
         coolDownTimer = baseTimer;
+        hitVFX = GetComponentInChildren<ParticleSystem>();
         renderer = GetComponent<MeshRenderer>();
+        source = GetComponent<AudioSource>();
+        sfx = GetComponent<SwordSfx>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        InvokeRepeating("Spawn", 0.1f, 0.4f);
+    }
 
+    void Spawn()
+    {
+        transform.position = Camera.main.transform.position + (transform.forward * 2);
     }
 
     public void BlinkDamage()
     {
         StartCoroutine(BlinkDamageRoutine());
+        hitVFX.Play();
+        sfx.PlaySwordSFX();
     }
 
     private IEnumerator BlinkDamageRoutine()
@@ -44,5 +60,14 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public void Opened()
+    {
+        renderer.material.color = new Color(1f, 0.4f, 0.7f);
+    }
+
+    public void Attacking()
+    {
+        renderer.material.color = new Color(0.2f, 0.2f, 0.2f);
+    }
 
 }
