@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Accelerometer",
+                    "type": "Value",
+                    "id": "98c8fd59-915e-4403-b456-40412025d38d",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -96,6 +105,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8251c811-9c8a-4a39-9078-0eacc17792cb",
+                    "path": "<LinearAccelerationSensor>/acceleration",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";XR",
+                    "action": "Accelerometer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

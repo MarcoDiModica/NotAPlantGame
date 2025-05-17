@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Monster : MonoBehaviour
 {
+    [Header("Fields for attacking state")]
     public float baseTimer = 2f;
     private float coolDownTimer;
     [Tooltip("X negative offset , Y positive offset")]
@@ -12,26 +14,35 @@ public class Monster : MonoBehaviour
     //public event AtkEvent atkEvent;
     public UnityEvent<AtkDirection> atkEvent;
 
+    private MeshRenderer renderer;
 
     void Awake()
     {
         coolDownTimer = baseTimer;
+        renderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleAttack();
+
     }
 
-    void HandleAttack()
+    public void BlinkDamage()
     {
-        coolDownTimer -= Time.deltaTime;
-        if(coolDownTimer < 0)
+        StartCoroutine(BlinkDamageRoutine());
+    }
+
+    private IEnumerator BlinkDamageRoutine()
+    {
+        for(int i = 0; i < 2; ++i)
         {
-            coolDownTimer = baseTimer + Random.Range(-timerVariation.x, +timerVariation.y);
-            //PerformAtk
-            atkEvent?.Invoke( (AtkDirection) Random.Range(0,3) );
+            renderer.material.color = Color.red;
+            yield return new WaitForSeconds(0.12f);
+            renderer.material.color = Color.white;
+            yield return new WaitForSeconds(0.12f);
         }
     }
+
+
 }

@@ -507,6 +507,37 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &110568935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110568936}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &110568936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110568935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18526512, y: 1.2110254, z: 2.187555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133460012
 GameObject:
   m_ObjectHideFlags: 0
@@ -11258,6 +11289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11271,6 +11306,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
       insertIndex: -1
       addedObject: {fileID: 769384898}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 769384901}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
       insertIndex: -1
       addedObject: {fileID: 769384899}
@@ -11383,12 +11421,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.1, z: 2.5}
-  m_Center: {x: 0, y: 0, z: 0.58}
+  m_Size: {x: 0.1, y: 0.1, z: 4.2377806}
+  m_Center: {x: 0, y: 0, z: 1.4488907}
 --- !u!114 &769384898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11416,7 +11454,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769384895}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f25ffe4e51c7a14e98c5a411ed0482e, type: 3}
   m_Name: 
@@ -11534,6 +11572,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &769384901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769384895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aecee6f7aa9346e45b98cf03122c4a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNode: 5
+  swordStrengthRequirement: 0.8
 --- !u!1 &812481520
 GameObject:
   m_ObjectHideFlags: 0
@@ -11635,7 +11687,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.870167, y: 4.870167, z: 4.870167}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15715754}
@@ -17856,6 +17908,8 @@ GameObject:
   - component: {fileID: 1415668779}
   - component: {fileID: 1415668778}
   - component: {fileID: 1415668782}
+  - component: {fileID: 1415668783}
+  - component: {fileID: 1415668784}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -17946,7 +18000,7 @@ Transform:
   m_GameObject: {fileID: 1415668777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.017815989, y: 2.2804947, z: 1.75}
+  m_LocalPosition: {x: -0.017815989, y: 0.91, z: 1.262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17993,6 +18047,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1415668783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415668777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11751a8804aea0c4fa6ef737d980a51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateTypes: 0000000001000000
+  startingState: 1
+  checkState: 1
+  debugSpeed: 0
+  monster: {fileID: 1415668782}
+--- !u!54 &1415668784
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415668777}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1421862787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -18565,7 +18663,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.29144, z: 0}
+  m_LocalPosition: {x: 3.2103112, y: 4.0355186, z: -0.5900401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19152,3 +19250,4 @@ SceneRoots:
   - {fileID: 1415668781}
   - {fileID: 1326188537}
   - {fileID: 1699994682}
+  - {fileID: 110568936}

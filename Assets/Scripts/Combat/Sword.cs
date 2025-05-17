@@ -1,6 +1,6 @@
 using System.Collections;
 using TMPro;
-using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -14,7 +14,7 @@ public class Sword : MonoBehaviour
     public float ROTATION_WINDOW = 12f;
 
     private Camera camera;
-    private ParticleSystem parryVFX;
+    private ParticleSystem parryVFX; 
     private SwordSfx swordSFX;
 
     public XRNode controllerNode = XRNode.RightHand;
@@ -141,5 +141,7 @@ public class Sword : MonoBehaviour
             device.SendHapticImpulse(0, amplitude, duration);
         }
     }
+
+
 
 }
