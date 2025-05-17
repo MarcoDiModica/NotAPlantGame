@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Sword : MonoBehaviour
 {
@@ -14,12 +15,16 @@ public class Sword : MonoBehaviour
 
     private Camera camera;
     private ParticleSystem parryVFX;
+    private SwordSfx swordSFX;
+
+    public XRNode controllerNode = XRNode.RightHand;
 
     void Awake()
     {
         camera = Camera.main;
         hand = transform.parent;
         parryVFX = GetComponentInChildren<ParticleSystem>();
+        swordSFX = GetComponent<SwordSfx>();
     }
 
     // Update is called once per frame
@@ -47,7 +52,9 @@ public class Sword : MonoBehaviour
         {
             if (dir == GetCurrentGuard())
             {
-                parryVFX.Play();
+                parryVFX?.Play();
+                swordSFX?.PlaySwordSFX();
+                SendHapticImpulse(controllerNode, 1, 0.3f);
                 break;
             }
             else
@@ -124,6 +131,15 @@ public class Sword : MonoBehaviour
     Vector3 relativePosition()
     {
         return camera.transform.InverseTransformPoint(hand.position);
+    }
+
+    void SendHapticImpulse(XRNode hand, float amplitude, float duration)
+    {
+        InputDevice device = InputDevices.GetDeviceAtXRNode(hand);
+        if (device.isValid && device.TryGetHapticCapabilities(out HapticCapabilities capabilities) && capabilities.supportsImpulse)
+        {
+            device.SendHapticImpulse(0, amplitude, duration);
+        }
     }
 
 }
