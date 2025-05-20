@@ -23,4 +23,16 @@ MonoBehaviour:
     rotation: {x: 289.1, y: 286.1, z: 38.18}
   - position: {x: -0.29, y: -0.31, z: 0}
     rotation: {x: 298, y: 298, z: 353}
+  - position: {x: -0.32, y: -0.41, z: 0.06}
+    rotation: {x: 24.5, y: 315.73, z: 343.85}
+  - position: {x: -0.22, y: -0.15, z: 0.22}
+    rotation: {x: 83.2, y: 198.6, z: 165.6}
+  - position: {x: -0.22, y: -0.09, z: 0.24}
+    rotation: {x: 61.25, y: 346.89, z: 129.56}
+  - position: {x: -0.27, y: -0.13, z: 0.26}
+    rotation: {x: 58.15, y: 330, z: 102.3}
+  - position: {x: -0.2, y: 0.07, z: 0.27}
+    rotation: {x: 48.65, y: 333, z: 70.31}
+  - position: {x: -0.23, y: -0.13, z: 0.27}
+    rotation: {x: 331.4, y: 247.3, z: 73.72}
   direction: 1

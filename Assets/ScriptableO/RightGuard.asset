@@ -23,4 +23,14 @@ MonoBehaviour:
     rotation: {x: 275, y: 47, z: 18}
   - position: {x: 0.36, y: -0.54, z: 0.21}
     rotation: {x: 285, y: 31.8, z: 37}
+  - position: {x: 0.44, y: -0.45, z: 0.22}
+    rotation: {x: 326, y: 32, z: 12.3}
+  - position: {x: 0.15, y: 0.04, z: 0.37}
+    rotation: {x: 63.1, y: 357.8, z: 219.6}
+  - position: {x: 0.42, y: -0.18, z: 0.18}
+    rotation: {x: 86.84, y: 1.05, z: 34.07}
+  - position: {x: 0.39, y: -0.26, z: 0.18}
+    rotation: {x: 290.9, y: 65.16, z: 16.35}
+  - position: {x: 0.39, y: -0.26, z: 0.18}
+    rotation: {x: 290.9, y: 65.16, z: 16.35}
   direction: 2

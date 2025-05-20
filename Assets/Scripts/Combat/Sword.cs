@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            debugText.text = "Pos " + relativePosition() + " Rot " + relativeRotation();
+            print ( "Pos " + relativePosition() + " Rot " + relativeRotation() );
 
         }
 
@@ -111,7 +111,7 @@ public class Sword : MonoBehaviour
         switch (dir)
         {
             case AtkDirection.None:
-                print("defenseless");
+                //print("defenseless");
                 break;
             case AtkDirection.Left:
                 print("Left Guard");

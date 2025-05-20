@@ -28,7 +28,7 @@ public class SwordAtk : MonoBehaviour
         {
             if (targetDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out velocity))
             {
-                Debug.Log($"Right Hand Velocity (XR): {velocity.magnitude}");
+                //Debug.Log($"Right Hand Velocity (XR): {velocity.magnitude}");
 
                 swordCollider.enabled = velocity.magnitude > swordStrengthRequirement ? true : false;
 
