@@ -11444,31 +11444,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999619
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.00764756
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.000000027311332
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.004205813
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 0.876
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 2913806269035047257, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.482
       objectReference: {fileID: 0}
     - target: {fileID: 4719898835281556316, guid: 131ad0e894ecda14eac32155d82d6c3d, type: 3}
       propertyPath: stopAction
@@ -18685,6 +18685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e50d60a9a3d0374e84b9de42ab3ca89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 10
   baseTimer: 2
   timerVariation: {x: 0, y: 0}
   atkEvent:

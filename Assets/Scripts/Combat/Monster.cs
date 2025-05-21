@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class Monster : MonoBehaviour
 {
+
+    public int hp;
+
     [Header("Fields for attacking state")]
     public float baseTimer = 2f;
     private float coolDownTimer;
@@ -58,6 +61,15 @@ public class Monster : MonoBehaviour
         StartCoroutine(BlinkDamageRoutine());
         hitVFX.Play();
         sfx.PlaySwordSFX();
+        hp--;
+
+        if(hp <= 0)
+        {
+            //Dead
+            StopAllCoroutines();
+            Destroy(gameObject);
+        }
+
     }
 
     private IEnumerator BlinkDamageRoutine()
