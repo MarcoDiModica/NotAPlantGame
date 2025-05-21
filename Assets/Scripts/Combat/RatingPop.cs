@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class RatingPop : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class RatingPop : MonoBehaviour
 
     public float offset = 15;
 
+    private SwordSfx sfxSource;
+
+
+
     void Awake()
     {
         renderer = GetComponent<Image>();
+        sfxSource = GetComponent<SwordSfx>();
 
     }
 
@@ -30,6 +36,7 @@ public class RatingPop : MonoBehaviour
     public void Poppt1(int streak, AtkDirection dir)
     {
         renderer.color = new Color(1,1,1,1);
+        sfxSource.PlaySwordSFX();
         if (dir == AtkDirection.Left)
         {
             transform.position = left_trans.position + ((Vector3)  Random.insideUnitCircle * offset) ;       
@@ -39,7 +46,7 @@ public class RatingPop : MonoBehaviour
             transform.position = right_trans.position + ((Vector3) Random.insideUnitCircle * offset);
         }
         renderer.sprite = sprites[streak % sprites.Length];
-        transform.DOScale(1.8f, 0.6f).OnComplete( () => transform.DOScale(1f, 0.6f).OnComplete(() => renderer.color = new Color(1, 1, 1, 0)) ) ;
+        transform.DOScale(1.8f, 0.4f).OnComplete( () => transform.DOScale(1f, 0.2f).OnComplete(() => renderer.color = new Color(1, 1, 1, 0)) ) ;
         
     }
 }

@@ -20,6 +20,7 @@ public class Sword : MonoBehaviour
     public XRNode controllerNode = XRNode.RightHand;
 
     public UnityEvent playerHitEvent;
+    public UnityEvent<int , AtkDirection> playerParryEvent;
 
     void Awake()
     {
@@ -48,15 +49,19 @@ public class Sword : MonoBehaviour
         StartCoroutine(CheckParry(dir));
     }
 
+    private int parryStreak = 0;
+
     private IEnumerator CheckParry(AtkDirection dir)
     {
         for(float i = 0; i < 1f; i += Time.deltaTime)
         {
             if (dir == GetCurrentGuard())
             {
+                // Parry
                 parryVFX?.Play();
                 swordSFX?.PlaySwordSFX();
                 SwordVibration.SendHapticImpulse(controllerNode, 1, 0.3f);
+                playerParryEvent?.Invoke(parryStreak++, dir);
                 yield break ;
             }
             else
@@ -66,6 +71,7 @@ public class Sword : MonoBehaviour
         }
 
         //NO Parry on time
+        parryStreak = 0;
 
         playerHitEvent?.Invoke();
 
