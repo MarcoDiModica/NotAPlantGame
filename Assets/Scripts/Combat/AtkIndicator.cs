@@ -17,7 +17,7 @@ public class AtkIndicator : MonoBehaviour
         defaultSprite = img.sprite;
     }
 
-    public void AlertAttack(AtkDirection dir)
+    public void AlertAttack(AtkDirection dir, float time = 0.9f)
     {
         switch (dir)
         {
@@ -36,7 +36,7 @@ public class AtkIndicator : MonoBehaviour
 
         }
 
-        Invoke("ReturnNormalSprite", 0.9f);
+        Invoke("ReturnNormalSprite", time);
     }
 
     void ReturnNormalSprite()

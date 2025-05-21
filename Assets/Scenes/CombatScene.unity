@@ -18715,6 +18715,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   chanceForOpening: 0.4
+  onslaughts:
+  - {fileID: 11400000, guid: 35db027b9ad2edd43836af40288e9ecc, type: 2}
 --- !u!114 &1415668783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18727,7 +18729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11751a8804aea0c4fa6ef737d980a51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateTypes: 0000000001000000
+  stateTypes: 000000000100000002000000
   startingState: 1
   checkState: 1
   debugSpeed: 0

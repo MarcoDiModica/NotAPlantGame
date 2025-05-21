@@ -6,7 +6,8 @@ public enum State
 {
     // Monster
     ATTACKING,
-    OPENED
+    OPENED,
+    ONSLAUGHT
 }
 
 public class IState
