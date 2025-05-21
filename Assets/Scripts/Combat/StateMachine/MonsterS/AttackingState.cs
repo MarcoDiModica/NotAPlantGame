@@ -6,6 +6,8 @@ public class AttackingState : IState
 
     private float coolDownTimer;
 
+    public float specialChance = 0.3f;
+
     public AttackingState(Monster mon)
     {
         this.monster = mon;
@@ -27,15 +29,23 @@ public class AttackingState : IState
         coolDownTimer -= Time.deltaTime;
         if (coolDownTimer < 0)
         {
-            coolDownTimer = monster.baseTimer + Random.Range(-monster.timerVariation.x, +monster.timerVariation.y);
-            //PerformAtk
-            monster.atkEvent?.Invoke((AtkDirection)Random.Range(0, 3));
 
-            if(Random.value <= monster.chanceForOpening)
+            if (Random.value < specialChance)
             {
-                CallTransition(State.OPENED, this);
+                CallTransition(State.ONSLAUGHT, this);
             }
+            else
+            {
 
+                coolDownTimer = monster.baseTimer + Random.Range(-monster.timerVariation.x, +monster.timerVariation.y);
+                //PerformAtk
+                monster.atkEvent?.Invoke((AtkDirection)Random.Range(0, 3), 0.9f);
+
+                if (Random.value <= monster.chanceForOpening)
+                {
+                    CallTransition(State.OPENED, this);
+                }
+            }
         }
     }
 

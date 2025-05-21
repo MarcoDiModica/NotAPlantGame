@@ -1,9 +1,13 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Monster : MonoBehaviour
 {
+
+    public int hp;
+
     [Header("Fields for attacking state")]
     public float baseTimer = 2f;
     private float coolDownTimer;
@@ -12,7 +16,7 @@ public class Monster : MonoBehaviour
 
     //public delegate void AtkEvent(AtkDirection direction);
     //public event AtkEvent atkEvent;
-    public UnityEvent<AtkDirection> atkEvent;
+    public UnityEvent<AtkDirection , float> atkEvent;
 
     private MeshRenderer renderer;
 
@@ -22,6 +26,8 @@ public class Monster : MonoBehaviour
 
     private SwordSfx sfx;
     private AudioSource source;
+    [Header("Fields for OnSlaught state")]
+    public Onslaught[] onslaughts;
 
     void Awake()
     {
@@ -32,14 +38,22 @@ public class Monster : MonoBehaviour
         sfx = GetComponent<SwordSfx>();
     }
 
+    Vector3 pos;
+
     private void Start()
     {
+        pos = transform.position;
         InvokeRepeating("Spawn", 0.1f, 0.4f);
+    }
+
+    private void Update()
+    {
+       // transform.position = pos;
     }
 
     void Spawn()
     {
-        transform.position = Camera.main.transform.position + (transform.forward * 2);
+        transform.position = new Vector3(pos.x , Camera.main.transform.position.y, pos.z);
     }
 
     public void BlinkDamage()
@@ -47,6 +61,15 @@ public class Monster : MonoBehaviour
         StartCoroutine(BlinkDamageRoutine());
         hitVFX.Play();
         sfx.PlaySwordSFX();
+        hp--;
+
+        if(hp <= 0)
+        {
+            //Dead
+            StopAllCoroutines();
+            Destroy(gameObject);
+        }
+
     }
 
     private IEnumerator BlinkDamageRoutine()
@@ -69,5 +92,22 @@ public class Monster : MonoBehaviour
     {
         renderer.material.color = new Color(0.2f, 0.2f, 0.2f);
     }
+    public void StartOnslaughts()
+    {
+        StartCoroutine(ProcessOnSlaught());
+    }
 
+    private IEnumerator ProcessOnSlaught()
+    {
+        Onslaught onslaught = onslaughts[Random.Range(0, onslaughts.Length)];
+
+        for (int i = 0; i < onslaught.monsterAtks.Length; ++i)
+        {
+            atkEvent?.Invoke(onslaught.monsterAtks[i].direction, onslaught.monsterAtks[i].time);
+
+            yield return new WaitForSeconds(onslaught.monsterAtks[i].time);
+        }
+        GetComponent<MonsterStateMachine>().OnChildTransitionEvent(State.OPENED);
+
+    }
 }

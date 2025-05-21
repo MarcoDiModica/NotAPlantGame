@@ -44,7 +44,7 @@ public class Sword : MonoBehaviour
 
     }
 
-    public void OnMonsterAttack(AtkDirection dir)
+    public void OnMonsterAttack(AtkDirection dir, float time)
     {
         StartCoroutine(CheckParry(dir));
     }
@@ -92,7 +92,7 @@ public class Sword : MonoBehaviour
         return AtkDirection.None;
     }
 
-    bool CheckStance(SwordStance stance)
+    bool CheckStance( SwordStance stance)
     {
         Vector3 posDifference = relativePosition() - stance.position;
         Vector3 rotationDifference =  new Vector3( /* DeltaAngle returns the shortest distance between 2 angles. ex: DeltaAngle(355 , 5) = 10 */

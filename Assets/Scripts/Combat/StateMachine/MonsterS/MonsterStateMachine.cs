@@ -27,6 +27,9 @@ public class MonsterStateMachine : StateMachine
                 case State.OPENED:
                     new_state = new OpenedState(monster);
                     break;
+                case State.ONSLAUGHT:
+                    new_state = new OnslaughtState(monster);
+                    break;
             }
 
             // each state should subscribe to the OnChild Transition
