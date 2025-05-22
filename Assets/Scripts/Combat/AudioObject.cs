@@ -33,6 +33,13 @@ public class AudioObject
         return audio;
     }
 
+    public void PlayRandomAudioRandomPitchRandomVol(AudioSource source)
+    {
+        source.pitch = PitchVariation();
+        var audio = audios[UnityEngine.Random.Range(0, audios.Length)];
+        source.volume = audio.VolumeVariation();
+        source.PlayOneShot(audio.clip);
+    }
 
     public float PitchVariation()
     {

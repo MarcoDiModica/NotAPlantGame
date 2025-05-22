@@ -11671,7 +11671,7 @@ MonoBehaviour:
     - clip: {fileID: 8300000, guid: 53d9937dbf5d89b4988649bc2ae8fc0f, type: 3}
       volume: 1
       volume_variation: 0.088
-    pitch_variation: 1.514
+    pitch_variation: 1.052
     volume: 1
 --- !u!82 &769384900
 AudioSource:

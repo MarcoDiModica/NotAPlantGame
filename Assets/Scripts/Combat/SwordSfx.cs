@@ -11,7 +11,8 @@ public class SwordSfx : MonoBehaviour
     }
     public void PlaySwordSFX()
     {
-        source?.PlayOneShot(audio.GetRandomAudio().clip);
+        audio.PlayRandomAudioRandomPitchRandomVol(source);
+       // source?.PlayOneShot(audio.GetRandomAudio().clip);
     }
 
 }
