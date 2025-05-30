@@ -23,33 +23,13 @@ public class PotionCraftManager : MonoBehaviour
     [SerializeField] private List<GameObject> currentIngredients = new List<GameObject>();
     [SerializeField] private GameObject currentBottle;
 
-    private Transform spawnPotionPosition;
-    private bool checkCombinations = false;
+    public Transform spawnPotionPosition;
 
     private void Update()
     {
-        if (checkCombinations)
+        if (currentIngredients.Count == 2 && currentBottle != null)
         {
-            checkCombinations = false;
-            bool potionCrafted = false;
-            foreach (var combination in potionCombinations)
-            {
-                if (currentIngredients.Count == 2 &&
-                    currentIngredients.Contains(combination.ingredient1Prefab) &&
-                    currentIngredients.Contains(combination.ingredient2Prefab) &&
-                    currentBottle != null &&
-                    currentBottle.CompareTag("Bottle") &&
-                    currentBottle.name == combination.bottlePrefab.name)
-                {
-                    CraftPotion(combination.resultPotionPrefab);
-                    potionCrafted = true;
-                    break;
-                }
-            }
-            if (!potionCrafted)
-            {
-                CraftPotion(null);
-            }
+            CraftPotionFromIngredients();
             ResetIngredientsAndBottle();
         }
     }
@@ -80,37 +60,33 @@ public class PotionCraftManager : MonoBehaviour
         }
 
         obj.SetActive(false);
-
-        CheckForPotionCombination();
     }
 
-    private void CheckForPotionCombination()
+    private void CraftPotionFromIngredients()
     {
-        if (currentIngredients.Count < 2 || currentBottle == null)
+        PotionCombination matchingCombination = FindMatchingCombination();
+        if (matchingCombination != null)
         {
-            Debug.Log("Not enough ingredients or bottle to craft a potion.");
-            return;
+            GameObject craftedPotion = Instantiate(matchingCombination.resultPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
+            Debug.Log($"Crafted potion: {craftedPotion.name}");
         }
         else
         {
-            Debug.Log($"Current ingredients: {currentIngredients.Count}, Current bottle: {currentBottle.name}");
-        }
-
-        checkCombinations = true;
-    }
-
-    private void CraftPotion(GameObject potionPrefab)
-    {
-        if (potionPrefab != null)
-        {
-            Instantiate(potionPrefab, spawnPotionPosition.position, Quaternion.identity);
-            Debug.Log("Potion crafted successfully!");
-        }
-        else
-        {
+            Debug.LogWarning("No matching potion combination found. Crafting bad potion.");
             Instantiate(badPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
-            Debug.Log("Bad potion crafted :(");
         }
+    }
+
+    private PotionCombination FindMatchingCombination()
+    {
+        foreach (var combination in potionCombinations)
+        {
+            if (currentIngredients.Contains(combination.ingredient1Prefab) && currentIngredients.Contains(combination.ingredient2Prefab) && currentBottle == combination.bottlePrefab)
+            {
+                return combination;
+            }
+        }
+        return null;
     }
 
     private void ResetIngredientsAndBottle()
