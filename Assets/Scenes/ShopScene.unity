@@ -24776,7 +24776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220127461787755774, guid: 047bdff48900c694493e2190d8251e9f, type: 3}
       propertyPath: m_Name
-      value: BlueRounded (1)
+      value: BlueRounded
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26472,7 +26472,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2339981, y: 2.9853952, z: 0.8913424}
+  m_LocalPosition: {x: 1.4341519, y: 2.8245807, z: 0.94894576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
