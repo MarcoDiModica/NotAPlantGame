@@ -68,13 +68,15 @@ public class PotionCraftManager : MonoBehaviour
         if (matchingCombination != null)
         {
             GameObject craftedPotion = Instantiate(matchingCombination.resultPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
-            Debug.Log($"Crafted potion: {craftedPotion.name}");
+            PlayPuffVFX();
         }
         else
         {
             Debug.LogWarning("No matching potion combination found. Crafting bad potion.");
             Instantiate(badPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
+            PlayPuffVFX(false);
         }
+
     }
 
     private PotionCombination FindMatchingCombination()
@@ -97,13 +99,20 @@ public class PotionCraftManager : MonoBehaviour
 
     private void PlaySplashVFX()
     {
-        Debug.Log("Splash VFX");
+    }
+
+    private void PlayPuffVFX(bool goodPuff = true)
+    {
+        if (goodPuff)
+        {
+        }
+        else
+        {
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Collision with {collision.gameObject.name} detected.");
-
         if (collision.gameObject.CompareTag("Ingredient") || collision.gameObject.CompareTag("Bottle"))
         {
             PlaySplashVFX();
