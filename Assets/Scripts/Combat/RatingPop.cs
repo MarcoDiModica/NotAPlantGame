@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public class RatingPop : MonoBehaviour
 {
     public Sprite[] sprites;
+    public AudioClip[] audios;
     private Image renderer;
-
+    private AudioSource source;
     public Transform right_trans;
     public Transform  left_trans;
     public int i = 0;
@@ -22,6 +23,7 @@ public class RatingPop : MonoBehaviour
     {
         renderer = GetComponent<Image>();
         sfxSource = GetComponent<SwordSfx>();
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -37,6 +39,7 @@ public class RatingPop : MonoBehaviour
     {
         renderer.color = new Color(1,1,1,1);
         sfxSource.PlaySwordSFX();
+        source?.PlayOneShot(audios[streak % audios.Length]);
         if (dir == AtkDirection.Left)
         {
             transform.position = left_trans.position + ((Vector3)  Random.insideUnitCircle * offset) ;       

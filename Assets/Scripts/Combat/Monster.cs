@@ -39,6 +39,7 @@ public class Monster : MonoBehaviour
     }
 
     Vector3 pos;
+    bool has_spawned = false;
 
     private void Start()
     {
@@ -53,7 +54,13 @@ public class Monster : MonoBehaviour
 
     void Spawn()
     {
-        transform.position = new Vector3(pos.x , Camera.main.transform.position.y, pos.z);
+        if (!has_spawned)
+        {
+            transform.position = new Vector3(pos.x, Camera.main.transform.position.y, pos.z);
+            pos = transform.position;
+            has_spawned = true;
+        }
+        else { transform.position = pos; }
     }
 
     public void BlinkDamage()
