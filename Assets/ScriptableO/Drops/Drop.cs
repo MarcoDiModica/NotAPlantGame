@@ -3,7 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Drop", menuName = "ScriptableObjects/Drop")]
 [Serializable]
-public class Drop : MonoBehaviour
+public class Drop : ScriptableObject
 {
     public string name;
     public Sprite sprite;

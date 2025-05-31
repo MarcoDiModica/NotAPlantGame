@@ -23121,6 +23121,7 @@ GameObject:
   - component: {fileID: 1415668784}
   - component: {fileID: 1415668785}
   - component: {fileID: 1415668786}
+  - component: {fileID: 1415668787}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -23436,6 +23437,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1415668787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415668777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2411afc1c37d1ac4998e92cef54ca24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possible_drops:
+  - {fileID: 11400000, guid: df52b056cf6c6aa4cbc54896b7690d27, type: 2}
+  - {fileID: 11400000, guid: f1ed3ff70818a9b45ab1acd3a9194374, type: 2}
+  - {fileID: 11400000, guid: f7c31bfd444e17748bcc96f2a0e73764, type: 2}
+  - {fileID: 11400000, guid: c37d5e2d12a040941b943f9611711f22, type: 2}
 --- !u!1 &1421862787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}

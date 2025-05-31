@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Monster : MonoBehaviour
 {
-
+    private int total_hp;
     public int hp;
 
     [Header("Fields for attacking state")]
@@ -31,6 +31,7 @@ public class Monster : MonoBehaviour
 
     void Awake()
     {
+        total_hp = hp;
         coolDownTimer = baseTimer;
         hitVFX = GetComponentInChildren<ParticleSystem>();
         renderer = GetComponent<MeshRenderer>();
@@ -72,8 +73,12 @@ public class Monster : MonoBehaviour
 
         if(hp <= 0)
         {
-            //Dead
+            //Dead a
             StopAllCoroutines();
+
+            EnemyDrop enemy_drop = GetComponent<EnemyDrop>();
+            enemy_drop?.DropLoot(total_hp);
+
             Destroy(gameObject);
         }
 

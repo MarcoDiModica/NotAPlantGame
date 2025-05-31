@@ -17,6 +17,7 @@ public class RatingPop : MonoBehaviour
 
     private SwordSfx sfxSource;
 
+    public int total_points;
 
 
     void Awake()
@@ -37,6 +38,8 @@ public class RatingPop : MonoBehaviour
 
     public void Poppt1(int streak, AtkDirection dir)
     {
+        total_points += (streak % sprites.Length);
+        print("total points " + total_points);
         renderer.color = new Color(1,1,1,1);
         sfxSource.PlaySwordSFX();
         source?.PlayOneShot(audios[streak % audios.Length]);
@@ -52,4 +55,12 @@ public class RatingPop : MonoBehaviour
         transform.DOScale(1.8f, 0.4f).OnComplete( () => transform.DOScale(1f, 0.2f).OnComplete(() => renderer.color = new Color(1, 1, 1, 0)) ) ;
         
     }
+
+    void CalculateDrops(int total_enemt_hp )
+    {
+
+        float multiplier = total_points / (total_enemt_hp * 5);
+
+    }
+
 }
