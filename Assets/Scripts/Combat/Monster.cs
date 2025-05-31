@@ -44,7 +44,7 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         pos = transform.position;
-        InvokeRepeating("Spawn", 0.1f, 0.4f);
+       // InvokeRepeating("Spawn", 0.1f, 0.4f);
     }
 
     private void Update()
@@ -54,13 +54,13 @@ public class Monster : MonoBehaviour
 
     void Spawn()
     {
-        if (!has_spawned)
-        {
-            transform.position = new Vector3(pos.x, Camera.main.transform.position.y, pos.z);
-            pos = transform.position;
-            has_spawned = true;
-        }
-        else { transform.position = pos; }
+        //if (!has_spawned)
+        //{
+        //    transform.position = new Vector3(pos.x, Camera.main.transform.position.y +1, pos.z);
+        //    pos = transform.position;
+        //    has_spawned = true;
+        //}
+        //else { return; }
     }
 
     public void BlinkDamage()
