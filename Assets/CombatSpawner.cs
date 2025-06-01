@@ -9,6 +9,7 @@ public class CombatSpawner : MonoBehaviour
     {
         Monster monster = Instantiate(moster_prefab, transform);
         monster.atkEvent.AddListener(sword.OnMonsterAttack);
+
         monster.transform.position = transform.position;
     }
 

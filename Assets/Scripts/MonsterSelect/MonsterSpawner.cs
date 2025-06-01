@@ -49,7 +49,7 @@ public class MonsterSpawner : MonoBehaviour
         }
         else 
         {
-            Invoke("SpawnEnemy", 0.2f);
+            SpawnEnemy();
         }
 
     }

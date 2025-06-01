@@ -10,7 +10,7 @@ public class VictoryPannel : MonoBehaviour
     public Drop[] possible_drops;
 
   
-    void Awake()
+    void Start()
     {
         vertical_container = GetComponentInChildren<VerticalLayoutGroup>();
 
