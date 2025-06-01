@@ -15,11 +15,16 @@ public class VictoryPannel : MonoBehaviour
         vertical_container = GetComponentInChildren<VerticalLayoutGroup>();
 
 
-        EnemyDrop enemy_drop = GameObject.FindAnyObjectByType<EnemyDrop>();
-        enemy_drop.drop_event.AddListener(ShowDrops);
 
         gameObject.SetActive(false);
 
+    }
+
+    public void ConnectPannelToDefeat()
+    {
+
+        EnemyDrop enemy_drop = GameObject.FindAnyObjectByType<EnemyDrop>();
+        enemy_drop.drop_event.AddListener(ShowDrops);
     }
 
     public void ShowDrops(string[] drops)

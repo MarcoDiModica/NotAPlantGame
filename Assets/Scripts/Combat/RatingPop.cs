@@ -26,6 +26,10 @@ public class RatingPop : MonoBehaviour
         sfxSource = GetComponent<SwordSfx>();
         source = GetComponent<AudioSource>();
 
+        Sword sword = FindAnyObjectByType<Sword>();
+        sword.playerParryEvent.AddListener(Poppt1);
+
+
     }
 
     private void Update()
