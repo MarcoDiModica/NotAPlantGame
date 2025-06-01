@@ -4,7 +4,7 @@ using UnityEngine.XR;
 
 public class SwordAtk : MonoBehaviour
 {
-    public XRNode targetNode = XRNode.RightHand;
+    private XRNode targetNode = XRNode.RightHand;
     private InputDevice targetDevice;
     private Vector3 velocity;
 
@@ -15,6 +15,11 @@ public class SwordAtk : MonoBehaviour
     private void Awake()
     {
         swordCollider = GetComponent<Collider>();
+    }
+
+    private void Start()
+    {
+        targetNode = SettingsManager.Instance.hand;
     }
 
     void Update()

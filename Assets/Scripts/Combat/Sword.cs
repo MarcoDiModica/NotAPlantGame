@@ -18,7 +18,7 @@ public class Sword : MonoBehaviour
     private ParticleSystem parryVFX; 
     private SwordSfx swordSFX;
 
-    public XRNode controllerNode = XRNode.RightHand;
+    private XRNode controllerNode = XRNode.RightHand;
 
     public UnityEvent playerHitEvent;
     public UnityEvent<int , AtkDirection> playerParryEvent;
@@ -31,11 +31,22 @@ public class Sword : MonoBehaviour
 
     void Awake()
     {
+
+    }
+
+    private void Start()
+    {
+        controllerNode = SettingsManager.Instance.hand;
         camera = Camera.main;
-        hand = transform.parent;
+       
         parryVFX = GetComponentInChildren<ParticleSystem>();
         swordSFX = GetComponent<SwordSfx>();
         source = GetComponent<AudioSource>();
+    }
+
+    public void GrabSword(Transform hand)
+    {
+        this.hand = hand;
     }
 
     // Update is called once per frame

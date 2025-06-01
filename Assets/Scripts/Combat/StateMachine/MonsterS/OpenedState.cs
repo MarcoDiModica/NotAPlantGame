@@ -28,7 +28,7 @@ public class OpenedState : IState
         if (collision.CompareTag("Sword"))
         {
             //Receives Damage
-            SwordVibration.SendHapticImpulse( UnityEngine.XR.XRNode.RightHand , 1, 0.3f);
+            SwordVibration.SendHapticImpulse( SettingsManager.Instance.hand , 1, 0.3f);
             monster.BlinkDamage();
 
             CallTransition(State.ATTACKING, this);
