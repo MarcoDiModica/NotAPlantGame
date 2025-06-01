@@ -11,7 +11,7 @@ public class Monster : MonoBehaviour
     [Header("Fields for attacking state")]
     public float baseTimer = 2f;
     private float coolDownTimer;
-    [Tooltip("X negative offset , Y positive offset")]
+    [Tooltip("X negative offset , Y positive offset WRITE BOTH IN POSITIVE")]
     public Vector2 timerVariation = Vector2.zero;
 
     //public delegate void AtkEvent(AtkDirection direction);

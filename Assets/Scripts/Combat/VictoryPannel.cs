@@ -34,4 +34,10 @@ public class VictoryPannel : MonoBehaviour
 
         }
     }
+
+    public void GoToShopScene()
+    {
+        MonsterSpawner.Instance.LoadSceneAsync("ShopScene");
+    }
+
 }
