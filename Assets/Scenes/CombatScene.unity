@@ -1967,6 +1967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 239586540}
+  - component: {fileID: 239586541}
   m_Layer: 0
   m_Name: SettingsManager
   m_TagString: Untagged
@@ -1989,6 +1990,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239586541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239586539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17653e8d19a001b46a27dc01955adff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 4
 --- !u!1 &243804166
 GameObject:
   m_ObjectHideFlags: 0
@@ -14278,9 +14292,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ee5f72663456b947bfeb86dd450c155, type: 2}
   - {fileID: 11400000, guid: 513481aaf26237e4a8599b0b09e03017, type: 2}
   - {fileID: 11400000, guid: 75ca670fb6764f94f926a59182b85c5e, type: 2}
+  - {fileID: 11400000, guid: d98cc4e7feec0984597e696d9c2a2564, type: 2}
   POSITION_WINDOW: 0.6
   ROTATION_WINDOW: 15
-  controllerNode: 5
   playerHitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -14453,7 +14467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aecee6f7aa9346e45b98cf03122c4a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetNode: 5
   swordStrengthRequirement: 0.8
 --- !u!114 &769384902
 MonoBehaviour:
@@ -14467,7 +14480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17dfe3948ef1924099d9c61485c17c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerNode: 4
   leftHandController: {fileID: 1870672732}
   rightHandController: {fileID: 1870672731}
 --- !u!1001 &782690871

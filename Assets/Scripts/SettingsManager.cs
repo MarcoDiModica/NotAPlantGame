@@ -10,8 +10,12 @@ public class SettingsManager : MonoBehaviour
 
     void Awake()
     {
-        if(Instance != null) { Destroy(Instance.gameObject); }
+        if(Instance != null) { 
+            Destroy(this.gameObject); 
+        }
         else { Instance = this; }
+
+        DontDestroyOnLoad(gameObject);
     }
 
 
