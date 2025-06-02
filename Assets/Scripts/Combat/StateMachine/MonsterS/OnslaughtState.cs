@@ -9,11 +9,12 @@ public class OnslaughtState : IState
 
     public float specialChance = 0.3f;
 
-
+    private Animator animator;
 
     public OnslaughtState(Monster mon)
     {
         this.monster = mon;
+        animator = mon.GetComponentInChildren<Animator>();
     }
 
     public override void Enter()

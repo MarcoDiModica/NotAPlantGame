@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class AttackingState : IState
@@ -7,10 +8,11 @@ public class AttackingState : IState
     private float coolDownTimer;
 
     public float specialChance = 0.3f;
-
+    private Animator animator;
     public AttackingState(Monster mon)
     {
         this.monster = mon;
+        animator = mon.GetComponentInChildren<Animator>();  
     }
 
     public override void Enter()
@@ -39,7 +41,9 @@ public class AttackingState : IState
 
                 coolDownTimer = monster.baseTimer + Random.Range(-monster.timerVariation.x, +monster.timerVariation.y);
                 //PerformAtk
-                monster.atkEvent?.Invoke((AtkDirection)Random.Range(0, 3), 0.9f);
+                int direction = Random.Range(0, 3);
+                monster.atkEvent?.Invoke((AtkDirection) direction, 0.9f);
+                monster.SetAtkAnim((AtkDirection) direction);
 
                 if (Random.value <= monster.chanceForOpening)
                 {
@@ -53,6 +57,8 @@ public class AttackingState : IState
     { 
         HandleAttack(); 
     }
+
+
 
     public override void PhysicsProcess() { }
 }

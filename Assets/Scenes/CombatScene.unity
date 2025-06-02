@@ -12946,7 +12946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 769384898}
   pannel: {fileID: 1899145746}
-  monster_to_spawn: {fileID: 5369385589701616922, guid: 9593cce40b421464999d6adc0153781a, type: 3}
+  monster_to_spawn: {fileID: 0}
 --- !u!1001 &460494340
 PrefabInstance:
   m_ObjectHideFlags: 0

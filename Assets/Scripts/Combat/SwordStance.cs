@@ -17,9 +17,3 @@ public enum AtkDirection
     None,
 }
 
-[CreateAssetMenu(fileName = "GuardsData", menuName = "ScriptableObjects/Guards", order = 1)]
-public class Guards : ScriptableObject
-{
-    public List<SwordStance> stances;
-    public AtkDirection direction;
-}

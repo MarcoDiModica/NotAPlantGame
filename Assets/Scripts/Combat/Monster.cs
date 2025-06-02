@@ -29,6 +29,8 @@ public class Monster : MonoBehaviour
     [Header("Fields for OnSlaught state")]
     public Onslaught[] onslaughts;
 
+    private Animator animator;
+
     void Awake()
     {
         total_hp = hp;
@@ -37,6 +39,7 @@ public class Monster : MonoBehaviour
         renderer = GetComponent<MeshRenderer>();
         source = GetComponent<AudioSource>();
         sfx = GetComponent<SwordSfx>();
+        animator = GetComponentInChildren<Animator>();  
     }
 
     Vector3 pos;
@@ -116,10 +119,27 @@ public class Monster : MonoBehaviour
         for (int i = 0; i < onslaught.monsterAtks.Length; ++i)
         {
             atkEvent?.Invoke(onslaught.monsterAtks[i].direction, onslaught.monsterAtks[i].time);
+            SetAtkAnim(onslaught.monsterAtks[i].direction);
 
             yield return new WaitForSeconds(onslaught.monsterAtks[i].time);
         }
         GetComponent<MonsterStateMachine>().OnChildTransitionEvent(State.OPENED);
 
+    }
+
+    public void SetAtkAnim(AtkDirection dir)
+    {
+        switch (dir)
+        {
+            case AtkDirection.Left:
+                animator?.SetTrigger("Left");
+                break;
+            case AtkDirection.Right:
+                animator?.SetTrigger("Right");
+                break;
+            case AtkDirection.Up:
+                animator?.SetTrigger("Up");
+                break;
+        }
     }
 }
