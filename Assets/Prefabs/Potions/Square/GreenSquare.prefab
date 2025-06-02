@@ -93,6 +93,8 @@ GameObject:
   - component: {fileID: 4873212836107605623}
   - component: {fileID: 7699896843780515010}
   - component: {fileID: 9102302873402909551}
+  - component: {fileID: 634456382205527933}
+  - component: {fileID: 3123827920790082785}
   m_Layer: 0
   m_Name: GreenSquare
   m_TagString: Potion
@@ -266,6 +268,41 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &634456382205527933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005872564375440304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4f7a24c9d1f2d4d8fbeaa74506a6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionName: GreenSquare
+  potionID: 6
+--- !u!65 &3123827920790082785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005872564375440304}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16297024, y: 0.21, z: 0.1535337}
+  m_Center: {x: -0.0010532737, y: 0.09, z: 0.00021798164}
 --- !u!1 &3589975560300718188
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +508,6 @@ GameObject:
   - component: {fileID: 4799423627402822829}
   - component: {fileID: 3266607866580536568}
   - component: {fileID: 3592423614062670724}
-  - component: {fileID: 5848147210856885366}
   m_Layer: 0
   m_Name: GreenSquare
   m_TagString: Potion
@@ -549,24 +585,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5848147210856885366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6081416235275083982}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.56239116, y: 1.7973666, z: 0.4877564}
-  m_Center: {x: 0.0000019073486, y: 0.9131334, z: 0.0000068992376}

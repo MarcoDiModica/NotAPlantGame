@@ -205,6 +205,8 @@ GameObject:
   - component: {fileID: 2230467824115318962}
   - component: {fileID: 8627854916205213282}
   - component: {fileID: 4718319300893548138}
+  - component: {fileID: 6193894635612894338}
+  - component: {fileID: 2155370036747372982}
   m_Layer: 0
   m_Name: BlueVertical
   m_TagString: Potion
@@ -378,6 +380,41 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &6193894635612894338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725039037178133845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4f7a24c9d1f2d4d8fbeaa74506a6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionName: BlueVertical
+  potionID: 7
+--- !u!65 &2155370036747372982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725039037178133845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11, y: 0.2, z: 0.11}
+  m_Center: {x: -0.0010532737, y: 0.1, z: 0.00021798164}
 --- !u!1 &6448099906173693629
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +426,6 @@ GameObject:
   - component: {fileID: 3096431154882796754}
   - component: {fileID: 7601909037272154090}
   - component: {fileID: 5384745591418780508}
-  - component: {fileID: 7210037596022689530}
   m_Layer: 0
   m_Name: BlueVertical
   m_TagString: Potion
@@ -467,27 +503,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7210037596022689530
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6448099906173693629}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9217717, y: 2.3230815, z: 0.9217717}
-  m_Center: {x: 0.000002861023, y: 1.1315408, z: 0.000031471252}
 --- !u!1 &6875375467780929510
 GameObject:
   m_ObjectHideFlags: 0

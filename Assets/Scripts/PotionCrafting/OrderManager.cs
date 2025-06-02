@@ -6,20 +6,41 @@ using UnityEngine;
 public class Order
 {
     public string customerName;
-    public List<GameObject> potions;
+    public List<PotionType> requiredPotions;
+    
+    public string GetOrderInfo()
+    {
+        string info = $"Customer: {customerName}\nRequired potions:\n";
+        foreach (var potion in requiredPotions)
+        {
+            if (potion != null)
+                info += $"- {potion.GetPotionInfo()}\n";
+        }
+        return info;
+    }
 }
 
 public class OrderManager : MonoBehaviour
 {
+    [Header("Order Management")]
     [SerializeField] private List<Order> possibleOrders;
     [SerializeField] private List<Order> completedOrders;
-
     [SerializeField] private Order currentOrder;
+    [SerializeField] private Queue<Order> pendingOrders; 
+    
+    [Header("Order Generation")]
+    [SerializeField] private int ordersToGenerate = 10;
+    
+    [Header("Delivery System")]
     [SerializeField] private List<GameObject> potionsInDelivery;
+    
+    [Header("Debug")]
+    [SerializeField] private bool showDebugLogs = true;
 
     private void Start()
     {
-        GenerateNewOrder();
+        GenerateInitialOrders();
+        AssignNextOrder();
     }
 
     private void Update()
@@ -28,70 +49,145 @@ public class OrderManager : MonoBehaviour
         {
             CompleteOrder();
         }
+        
+        if (Input.GetKeyDown(KeyCode.O) && showDebugLogs)
+        {
+            ShowCurrentOrderInfo();
+        }
     }
 
-    private void GenerateNewOrder()
+    private void GenerateInitialOrders()
     {
-        if (possibleOrders.Count > 0)
+        pendingOrders = new Queue<Order>();
+        
+        if (possibleOrders.Count == 0)
+        {
+            Debug.LogError("No possible orders configured!");
+            return;
+        }
+
+        for (int i = 0; i < ordersToGenerate; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, possibleOrders.Count);
-            currentOrder = possibleOrders[randomIndex];
-            possibleOrders.RemoveAt(randomIndex);
+            Order selectedOrder = possibleOrders[randomIndex];
+            
+            Order newOrder = new Order
+            {
+                customerName = selectedOrder.customerName,
+                requiredPotions = new List<PotionType>(selectedOrder.requiredPotions)
+            };
+            
+            pendingOrders.Enqueue(newOrder);
+        }
+        
+        if (showDebugLogs)
+        {
+            Debug.Log($"Generated {ordersToGenerate} orders. Orders in queue: {pendingOrders.Count}");
+        }
+    }
+
+    private void AssignNextOrder()
+    {
+        if (pendingOrders.Count > 0)
+        {
+            currentOrder = pendingOrders.Dequeue();
+            
+            if (showDebugLogs)
+            {
+                Debug.Log($"New order assigned:\n{currentOrder.GetOrderInfo()}");
+                Debug.Log($"Remaining orders: {pendingOrders.Count}");
+            }
         }
         else
         {
+            currentOrder = null;
             Debug.Log("No more orders available.");
         }
     }
 
-    private void CompleteOrder()
+    public void CompleteOrder()
     {
         if (currentOrder != null && ValidateCurrentOrder())
         {
             completedOrders.Add(currentOrder);
+            if (showDebugLogs)
+            {
+                Debug.Log($"Order completed for {currentOrder.customerName}!");
+                Debug.Log($"Completed orders: {completedOrders.Count}");
+            }
             currentOrder = null;
-            GenerateNewOrder();
+            AssignNextOrder();
         }
         else
         {
-            Debug.Log("Current order is not valid or already completed.");
+            if (showDebugLogs)
+            {
+                Debug.Log("Current order is not valid or already completed.");
+            }
         }
     }
 
     private bool ValidateCurrentOrder()
     {
-        if (currentOrder == null || potionsInDelivery.Count != currentOrder.potions.Count)
-            return false;
-
-        var requiredCounts = new Dictionary<GameObject, int>();
-        foreach (var potion in currentOrder.potions)
+        if (currentOrder == null)
         {
-            if (requiredCounts.ContainsKey(potion))
-                requiredCounts[potion]++;
-            else
-                requiredCounts[potion] = 1;
+            if (showDebugLogs) Debug.Log("No current order");
+            return false;
+        }
+        
+        if (potionsInDelivery.Count != currentOrder.requiredPotions.Count)
+        {
+            if (showDebugLogs)
+            {
+                Debug.Log($"Potion count mismatch. Required: {currentOrder.requiredPotions.Count}, Delivered: {potionsInDelivery.Count}");
+            }
+            return false;
         }
 
-        var deliveryCounts = new Dictionary<GameObject, int>();
+        var requiredCounts = new Dictionary<int, int>();
+        foreach (var potionType in currentOrder.requiredPotions)
+        {
+            if (potionType != null)
+            {
+                if (requiredCounts.ContainsKey(potionType.potionID))
+                    requiredCounts[potionType.potionID]++;
+                else
+                    requiredCounts[potionType.potionID] = 1;
+            }
+        }
+
+        var deliveryCounts = new Dictionary<int, int>();
         foreach (var potion in potionsInDelivery)
         {
-            if (deliveryCounts.ContainsKey(potion))
-                deliveryCounts[potion]++;
-            else
-                deliveryCounts[potion] = 1;
+            var potionType = potion.GetComponent<PotionType>();
+            if (potionType != null)
+            {
+                if (deliveryCounts.ContainsKey(potionType.potionID))
+                    deliveryCounts[potionType.potionID]++;
+                else
+                    deliveryCounts[potionType.potionID] = 1;
+            }
+            else if (showDebugLogs)
+            {
+                Debug.LogWarning($"Potion {potion.name} missing PotionType component");
+            }
         }
 
         foreach (var kvp in requiredCounts)
         {
             if (!deliveryCounts.TryGetValue(kvp.Key, out int count) || count != kvp.Value)
+            {
+                if (showDebugLogs)
+                {
+                    Debug.Log($"Validation failed for potion ID {kvp.Key}. Required: {kvp.Value}, Delivered: {count}");
+                }
                 return false;
+            }
         }
 
         foreach (GameObject potion in potionsInDelivery)
             Destroy(potion);
         potionsInDelivery.Clear();
-
-        //play feedback
 
         return true;
     }
@@ -100,14 +196,7 @@ public class OrderManager : MonoBehaviour
     {
         if (other.CompareTag("Potion"))
         {
-            if (other.transform.parent != null && other.transform.parent.CompareTag("Potion"))
-            {
-                potionsInDelivery.Add(other.transform.parent.gameObject);
-            }
-            else
-            {
-                potionsInDelivery.Add(other.gameObject);
-            }
+            potionsInDelivery.Add(other.gameObject);
         }
     }
 
@@ -115,14 +204,40 @@ public class OrderManager : MonoBehaviour
     {
         if (other.CompareTag("Potion"))
         {
-            if (other.transform.parent != null && other.transform.parent.CompareTag("Potion"))
-            {
-                potionsInDelivery.Remove(other.transform.parent.gameObject);
-            }
-            else
-            {
-                potionsInDelivery.Remove(other.gameObject);
-            }
+            potionsInDelivery.Remove(other.gameObject);
         }
+    }
+
+    private void ShowCurrentOrderInfo()
+    {
+        if (currentOrder != null)
+        {
+            Debug.Log($"Current Order:\n{currentOrder.GetOrderInfo()}");
+            Debug.Log($"Potions in delivery: {potionsInDelivery.Count}");
+        }
+        else
+        {
+            Debug.Log("No current order");
+        }
+    }
+
+    public Order GetCurrentOrder()
+    {
+        return currentOrder;
+    }
+
+    public List<GameObject> GetPotionsInDelivery()
+    {
+        return new List<GameObject>(potionsInDelivery);
+    }
+
+    public int GetRemainingOrdersCount()
+    {
+        return pendingOrders?.Count ?? 0;
+    }
+
+    public int GetCompletedOrdersCount()
+    {
+        return completedOrders?.Count ?? 0;
     }
 }
