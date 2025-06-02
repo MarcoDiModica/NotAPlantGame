@@ -2343,6 +2343,18 @@ MonoBehaviour:
   - customerName: Gordon
     requiredPotions:
     - {fileID: 2432930052258033058}
+  - customerName: Gordon
+    requiredPotions:
+    - {fileID: 6319990893754988582, guid: 047bdff48900c694493e2190d8251e9f, type: 3}
+  - customerName: Gordon
+    requiredPotions:
+    - {fileID: 3149796424768247903, guid: 463040180932caf438626ba4632b6020, type: 3}
+  - customerName: Gordon
+    requiredPotions:
+    - {fileID: 8858975697188617782, guid: 78a4abd523ab68649bd7629607bfe326, type: 3}
+  - customerName: Nick
+    requiredPotions:
+    - {fileID: 634456382205527933, guid: 1bea99c987ffe3e459c2119a412e1ab4, type: 3}
   completedOrders: []
   currentOrder:
     customerName: 
@@ -13515,13 +13527,13 @@ MonoBehaviour:
     bottlePrefab: {fileID: 2644072185182391675, guid: 29acc5a0edaa90c49a017a6f1e8560fd, type: 3}
     resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
   - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
-    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
-    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
-    resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
-  - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
-    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
-    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
-    resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
+    ingredient2Prefab: {fileID: 2362926637927397991, guid: adb51817400585e4fbc676fc2f93ad0f, type: 3}
+    bottlePrefab: {fileID: 2644072185182391675, guid: 29acc5a0edaa90c49a017a6f1e8560fd, type: 3}
+    resultPotionPrefab: {fileID: 4850959025155825903, guid: 461c08960b04c0240893959253f27923, type: 3}
+  - ingredient1Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
+    ingredient2Prefab: {fileID: 2362926637927397991, guid: adb51817400585e4fbc676fc2f93ad0f, type: 3}
+    bottlePrefab: {fileID: 5497978574673305833, guid: bd26121aec060c84388e543f6da78918, type: 3}
+    resultPotionPrefab: {fileID: 1005872564375440304, guid: 1bea99c987ffe3e459c2119a412e1ab4, type: 3}
   badPotionPrefab: {fileID: 5636065599507674149, guid: 029f42e7b8b14674ba6a626d7b8e654b, type: 3}
   currentIngredients: []
   currentBottle: {fileID: 0}
@@ -15739,7 +15751,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.7749875, y: 2.7749875, z: 2.7749875}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15715754}
@@ -27668,7 +27680,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1292058, y: 2.2923892, z: 1.3687116}
+  m_LocalPosition: {x: -0.16791642, y: 3.2464666, z: 2.287502}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
