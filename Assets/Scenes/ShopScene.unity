@@ -13306,9 +13306,49 @@ MonoBehaviour:
   - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
     ingredient2Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
     bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
-    resultPotionPrefab: {fileID: 4850959025155825903, guid: 461c08960b04c0240893959253f27923, type: 3}
+    resultPotionPrefab: {fileID: 6220127461787755774, guid: 047bdff48900c694493e2190d8251e9f, type: 3}
   - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
+    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
+    bottlePrefab: {fileID: 2644072185182391675, guid: 29acc5a0edaa90c49a017a6f1e8560fd, type: 3}
+    resultPotionPrefab: {fileID: 5760764469281434041, guid: 78a4abd523ab68649bd7629607bfe326, type: 3}
+  - ingredient1Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
+    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
+    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
+    resultPotionPrefab: {fileID: 7732294430086806331, guid: 6d81d5d57e99bb3428ec2002ea72071e, type: 3}
+  - ingredient1Prefab: {fileID: 2501936949831830843, guid: ddaf3bf0069d7004c952bb2a2f025ded, type: 3}
+    ingredient2Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
+    bottlePrefab: {fileID: 5497978574673305833, guid: bd26121aec060c84388e543f6da78918, type: 3}
+    resultPotionPrefab: {fileID: 1741415421082847844, guid: 30b51e3ca1828124986209e36cc316aa, type: 3}
+  - ingredient1Prefab: {fileID: 7566258720979667266, guid: 30d403dde7ecfc94184e1d703f7ca9fc, type: 3}
     ingredient2Prefab: {fileID: 7566258720979667266, guid: 30d403dde7ecfc94184e1d703f7ca9fc, type: 3}
+    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
+    resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
+  - ingredient1Prefab: {fileID: 7566258720979667266, guid: 30d403dde7ecfc94184e1d703f7ca9fc, type: 3}
+    ingredient2Prefab: {fileID: 171178707703425957, guid: 56e5820f86cf20245979a271359fd532, type: 3}
+    bottlePrefab: {fileID: 2644072185182391675, guid: 29acc5a0edaa90c49a017a6f1e8560fd, type: 3}
+    resultPotionPrefab: {fileID: 4725039037178133845, guid: 2b86860c967fab64493ffe7a39a71c84, type: 3}
+  - ingredient1Prefab: {fileID: 171178707703425957, guid: 56e5820f86cf20245979a271359fd532, type: 3}
+    ingredient2Prefab: {fileID: 171178707703425957, guid: 56e5820f86cf20245979a271359fd532, type: 3}
+    bottlePrefab: {fileID: 5497978574673305833, guid: bd26121aec060c84388e543f6da78918, type: 3}
+    resultPotionPrefab: {fileID: 1744831672418488722, guid: 9f9d38dff520b8d4298af3d459868834, type: 3}
+  - ingredient1Prefab: {fileID: 9028892183342473839, guid: e655b647b821ded41ac4d50a2a8d78bf, type: 3}
+    ingredient2Prefab: {fileID: 9028892183342473839, guid: e655b647b821ded41ac4d50a2a8d78bf, type: 3}
+    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
+    resultPotionPrefab: {fileID: 1883113577157015328, guid: e22f07f6a6382594aabe9111fb9738c4, type: 3}
+  - ingredient1Prefab: {fileID: 9028892183342473839, guid: e655b647b821ded41ac4d50a2a8d78bf, type: 3}
+    ingredient2Prefab: {fileID: 7566258720979667266, guid: 30d403dde7ecfc94184e1d703f7ca9fc, type: 3}
+    bottlePrefab: {fileID: 5497978574673305833, guid: bd26121aec060c84388e543f6da78918, type: 3}
+    resultPotionPrefab: {fileID: 5414100137908466014, guid: 58b7a032d1809ab4aabc6091de1f062b, type: 3}
+  - ingredient1Prefab: {fileID: 9028892183342473839, guid: e655b647b821ded41ac4d50a2a8d78bf, type: 3}
+    ingredient2Prefab: {fileID: 171178707703425957, guid: 56e5820f86cf20245979a271359fd532, type: 3}
+    bottlePrefab: {fileID: 2644072185182391675, guid: 29acc5a0edaa90c49a017a6f1e8560fd, type: 3}
+    resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
+  - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
+    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
+    bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
+    resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
+  - ingredient1Prefab: {fileID: 4587212130952370312, guid: 2c91d93a0ef1a8d47820cc2b5fc78a7a, type: 3}
+    ingredient2Prefab: {fileID: 9075114199013606329, guid: 63d545e51a0a2784d865125a0630c6fe, type: 3}
     bottlePrefab: {fileID: 593301646575492289, guid: 91615042633d55c468284117c791ac5c, type: 3}
     resultPotionPrefab: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
   badPotionPrefab: {fileID: 7343039669656735721, guid: 257cff8f959547d499f21ae1b605ff77, type: 3}
@@ -15474,7 +15514,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6027324, y: 2.6027324, z: 2.6027324}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15715754}
@@ -26893,7 +26933,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.657, y: 2.02844, z: 0.72}
+  m_LocalPosition: {x: 0.566713, y: 3.278772, z: 3.4842749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28857,7 +28897,7 @@ PrefabInstance:
       objectReference: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5760764469281434041, guid: 78a4abd523ab68649bd7629607bfe326, type: 3}
       propertyPath: m_Name
-      value: PurpleVertical
+      value: PotionOfEnergy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29036,7 +29076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414100137908466014, guid: 58b7a032d1809ab4aabc6091de1f062b, type: 3}
       propertyPath: m_Name
-      value: PurpleSquare
+      value: PotionOfVenom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29599,7 +29639,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1741415421082847844, guid: 30b51e3ca1828124986209e36cc316aa, type: 3}
       propertyPath: m_Name
-      value: RedSquare
+      value: PotionOfPower
       objectReference: {fileID: 0}
     - target: {fileID: 5436000779850247772, guid: 30b51e3ca1828124986209e36cc316aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29696,7 +29736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4850959025155825903, guid: 461c08960b04c0240893959253f27923, type: 3}
       propertyPath: m_Name
-      value: RedVertical
+      value: PotionOfEnhancement
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29872,7 +29912,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1005872564375440304, guid: 1bea99c987ffe3e459c2119a412e1ab4, type: 3}
       propertyPath: m_Name
-      value: GreenSquare
+      value: PotionOfDarkvision
       objectReference: {fileID: 0}
     - target: {fileID: 4873212836107605623, guid: 1bea99c987ffe3e459c2119a412e1ab4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30755,7 +30795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4725039037178133845, guid: 2b86860c967fab64493ffe7a39a71c84, type: 3}
       propertyPath: m_Name
-      value: BlueVertical
+      value: PotionOfRain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30772,7 +30812,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1883113577157015328, guid: e22f07f6a6382594aabe9111fb9738c4, type: 3}
       propertyPath: m_Name
-      value: RedRounded
+      value: PotionOfTruesight
       objectReference: {fileID: 0}
     - target: {fileID: 4452055345525172303, guid: e22f07f6a6382594aabe9111fb9738c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31143,7 +31183,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7014672088477506100, guid: 463040180932caf438626ba4632b6020, type: 3}
       propertyPath: m_Name
-      value: PurpleRounded
+      value: MushroomPotion
       objectReference: {fileID: 0}
     - target: {fileID: 7679235645403597069, guid: 463040180932caf438626ba4632b6020, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31240,7 +31280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6220127461787755774, guid: 047bdff48900c694493e2190d8251e9f, type: 3}
       propertyPath: m_Name
-      value: BlueRounded
+      value: PotionOfSatiety
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31302,7 +31342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1744831672418488722, guid: 9f9d38dff520b8d4298af3d459868834, type: 3}
       propertyPath: m_Name
-      value: BlueSquare
+      value: PotionOfArmor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31359,7 +31399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732294430086806331, guid: 6d81d5d57e99bb3428ec2002ea72071e, type: 3}
       propertyPath: m_Name
-      value: GreenRounded
+      value: PotionOfHardenedSkin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31492,7 +31532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234072868873124961, guid: 23b3f37d8b73d214dbf25d1aa8077264, type: 3}
       propertyPath: m_Name
-      value: 'GreenVertical '
+      value: PabloPotion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

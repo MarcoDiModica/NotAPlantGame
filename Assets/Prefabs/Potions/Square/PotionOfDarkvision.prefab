@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 634456382205527933}
   - component: {fileID: 3123827920790082785}
   m_Layer: 0
-  m_Name: GreenSquare
+  m_Name: PotionOfDarkvision
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

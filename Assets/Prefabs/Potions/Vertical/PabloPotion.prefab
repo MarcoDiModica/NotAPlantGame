@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 5964821862470958298}
   - component: {fileID: 4266073600561666928}
   m_Layer: 0
-  m_Name: 'GreenVertical '
+  m_Name: PabloPotion
   m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
