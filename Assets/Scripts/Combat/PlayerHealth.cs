@@ -1,5 +1,6 @@
 using Ilumisoft.HealthSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class PlayerHealth : MonoBehaviour
         health.ApplyDamage(dmg);
         SwordVibration.SendHapticImpulse(UnityEngine.XR.XRNode.RightHand, 1f, 0.3f);
         SwordVibration.SendHapticImpulse(UnityEngine.XR.XRNode.LeftHand, 1f, 0.3f);
+
+        if(health.CurrentHealth <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 }
