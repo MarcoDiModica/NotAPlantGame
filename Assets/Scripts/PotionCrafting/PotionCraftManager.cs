@@ -20,10 +20,17 @@ public class PotionCraftManager : MonoBehaviour
     [Header("Bad Potion Prefab :(")]
     public GameObject badPotionPrefab;
 
+    [Header("Current Ingredients and Bottle")]
     [SerializeField] private List<GameObject> currentIngredients = new List<GameObject>();
     [SerializeField] private GameObject currentBottle;
 
+    [Header("Spawn Position for Crafted Potion")]
     public Transform spawnPotionPosition;
+
+    [Header("Visual Effects")]
+    public ParticleSystem splashVFX;
+    public ParticleSystem goodPuffVFX;
+    public ParticleSystem badPuffVFX;
 
     private void Update()
     {
@@ -99,15 +106,26 @@ public class PotionCraftManager : MonoBehaviour
 
     private void PlaySplashVFX()
     {
+        if (splashVFX != null)
+        {
+            Instantiate(splashVFX, spawnPotionPosition.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("Splash VFX not assigned.");
+        }
     }
 
     private void PlayPuffVFX(bool goodPuff = true)
     {
-        if (goodPuff)
+        ParticleSystem puffVFX = goodPuff ? goodPuffVFX : badPuffVFX;
+        if (puffVFX != null)
         {
+            Instantiate(puffVFX, spawnPotionPosition.position, Quaternion.identity);
         }
         else
         {
+            Debug.LogWarning("Puff VFX not assigned.");
         }
     }
 
