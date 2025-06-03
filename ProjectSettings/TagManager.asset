@@ -9,6 +9,16 @@ TagManager:
   - Ingredient
   - Potion
   - FX Block Zone
+  - Artichoke
+  - GreenPetalScale
+  - Glistening Lead Blade
+  - MushyShroom
+  - DurableCap
+  - TruffleEyeball
+  - StemViscera
+  - round
+  - square
+  - vert
   layers:
   - Default
   - TransparentFX
