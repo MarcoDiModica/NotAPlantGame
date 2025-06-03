@@ -12,11 +12,12 @@ public class OpenedState : IState
     public override void Enter()
     {
         monster.Opened();
+        monster.mat.color = new Color(255 / 255f, 192 / 255f, 203 / 255f);
     }
 
     public override void Exit()
     {
-
+        monster.mat.color = Color.white;
     }
 
     public override void Process() { }

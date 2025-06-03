@@ -31,4 +31,4 @@ MonoBehaviour:
     rotation: {x: 83.2, y: 198.6, z: 165.6}
   - position: {x: -0.27, y: -0.13, z: 0.26}
     rotation: {x: 58.15, y: 330, z: 102.3}
-  direction: 0
+  direction: 1
