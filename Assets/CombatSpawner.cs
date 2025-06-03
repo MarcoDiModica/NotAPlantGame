@@ -36,6 +36,7 @@ public class CombatSpawner : MonoBehaviour
         }
 
         Monster monster = Instantiate(monster_to_spawn, transform);
+        monster.atkEvent.AddListener(sword.OnMonsterAttack);
         monster.transform.position = transform.position;
         pannel.ConnectPannelToDefeat();
 
