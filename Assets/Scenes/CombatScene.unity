@@ -12821,7 +12821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.97
+      value: 1.634
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 55d9e8c0b5924b545b2d6819459c9288, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16558,8 +16558,8 @@ Transform:
   m_GameObject: {fileID: 1171850741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000020652, y: -0.47, z: -0.00000041304}
-  m_LocalScale: {x: 5.669, y: 0.5669, z: 5.669}
+  m_LocalPosition: {x: 0.00000020652, y: -0.58, z: 39.3}
+  m_LocalScale: {x: 57.597042, y: 0.5669, z: 118.57281}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -22904,7 +22904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1326188534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26525,7 +26525,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1680501587, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7
+      value: 1.349
+      objectReference: {fileID: 0}
+    - target: {fileID: 153982007679157697, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RequestedTrackingOriginMode
@@ -26579,9 +26583,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5895826684305351068, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6981642495833523204, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.3385601
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173983156334026967, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
