@@ -82,7 +82,8 @@ public class PotionCraftManager : MonoBehaviour
         }
         else
         {
-            Instantiate(badPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
+            GameObject randomPotionPrefab = potionCombinations[UnityEngine.Random.Range(0, potionCombinations.Count)].resultPotionPrefab;
+            Instantiate(randomPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
             PlayPuffVFX(false);
         }
 
