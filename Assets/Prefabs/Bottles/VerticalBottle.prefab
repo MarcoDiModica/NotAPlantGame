@@ -68,6 +68,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 8ba78f4ff9fbca84f93cfb159c681314, type: 2}
   - {fileID: -6748072989193729204, guid: d70d56863b49e114b90712e145b73c66, type: 3}
   - {fileID: 2100000, guid: 807d22c7cc9dbe74286d6c537d79ecc0, type: 2}
+  - {fileID: 2100000, guid: 807d22c7cc9dbe74286d6c537d79ecc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,8 +206,8 @@ GameObject:
   - component: {fileID: 2647652374583282853}
   m_Layer: 0
   m_Name: VerticalBottle
-  m_TagString: Bottle
-  m_Icon: {fileID: 0}
+  m_TagString: vert
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -218,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2644072185182391675}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.943, y: 1.474, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

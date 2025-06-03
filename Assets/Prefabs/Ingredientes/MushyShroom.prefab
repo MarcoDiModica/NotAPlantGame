@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 5491443196607014276}
   m_Layer: 0
   m_Name: MushyShroom
-  m_TagString: Ingredient
+  m_TagString: MushyShroom
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

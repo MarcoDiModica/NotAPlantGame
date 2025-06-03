@@ -251,6 +251,6 @@ public class OrderManager : MonoBehaviour
 
     public void GotoCombatScene()
     {
-        SceneManager.LoadScene("CombatScene");
+        SceneManager.LoadScene("DimensionalSpace");
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine.Rendering;
 [Serializable]
 public class PotionCombination
 {
-    public GameObject ingredient1Prefab;
-    public GameObject ingredient2Prefab;
-    public GameObject bottlePrefab;
+    public string ingredient1Tag;
+    public string ingredient2Tag;
+    public string bottleTag;
     public GameObject resultPotionPrefab;
 }
 
@@ -21,8 +21,8 @@ public class PotionCraftManager : MonoBehaviour
     public GameObject badPotionPrefab;
 
     [Header("Current Ingredients and Bottle")]
-    [SerializeField] private List<GameObject> currentIngredients = new List<GameObject>();
-    [SerializeField] private GameObject currentBottle;
+    [SerializeField] private List<string> currentIngredients = new List<string>();
+    [SerializeField] private string currentBottle;
 
     [Header("Spawn Position for Crafted Potion")]
     public Transform spawnPotionPosition;
@@ -34,39 +34,42 @@ public class PotionCraftManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentIngredients.Count == 2 && currentBottle != null)
+        if (currentIngredients.Count == 2 && currentBottle.Length > 0)
         {
             CraftPotionFromIngredients();
             ResetIngredientsAndBottle();
         }
     }
 
-    public void AddIngredientOrBottle(GameObject obj)
+    public void AddIngredientOrBottle(string tag)
     {
-        if (obj.CompareTag("Ingredient") || obj.CompareTag("Bottle"))
+        if (tag == "square" || tag == "round" || tag == "vert")
         {
-            if (obj.CompareTag("Bottle"))
+            if (currentBottle.Length == 0)
             {
-                currentBottle = obj;
+                currentBottle = tag;
+                Debug.Log("Bottle added: " + currentBottle);
             }
             else
             {
-                currentIngredients.Add(obj);
+                currentIngredients.Add(tag);
             }
         }
         else
         {
-            if (currentIngredients.Count < 2)
+            if (currentIngredients.Count >= 2 && currentBottle.Length == 0)
             {
-                currentIngredients.Add(obj);
+                currentBottle = tag;
+                return;
             }
-            else if (currentBottle == null)
+            if (currentIngredients.Count >= 2)
             {
-                currentBottle = obj;
+                return;
             }
-        }
 
-        obj.SetActive(false);
+
+            currentIngredients.Add(tag);
+        }
     }
 
     private void CraftPotionFromIngredients()
@@ -74,12 +77,11 @@ public class PotionCraftManager : MonoBehaviour
         PotionCombination matchingCombination = FindMatchingCombination();
         if (matchingCombination != null)
         {
-            GameObject craftedPotion = Instantiate(matchingCombination.resultPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
+            Instantiate(matchingCombination.resultPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
             PlayPuffVFX();
         }
         else
         {
-            Debug.LogWarning("No matching potion combination found. Crafting bad potion.");
             Instantiate(badPotionPrefab, spawnPotionPosition.position, Quaternion.identity);
             PlayPuffVFX(false);
         }
@@ -88,27 +90,41 @@ public class PotionCraftManager : MonoBehaviour
 
     private PotionCombination FindMatchingCombination()
     {
-        foreach (var combination in potionCombinations)
+        if (currentIngredients.Count != 2 || currentBottle.Length == 0)
         {
-            if (currentIngredients.Contains(combination.ingredient1Prefab) && currentIngredients.Contains(combination.ingredient2Prefab) && currentBottle == combination.bottlePrefab)
+            return null;
+        }
+
+        foreach (PotionCombination combination in potionCombinations)
+        {
+            if (combination.ingredient1Tag == currentIngredients[0] &&
+                combination.ingredient2Tag == currentIngredients[1] &&
+                combination.bottleTag == currentBottle)
+            {
+                return combination;
+            }
+            else if (combination.ingredient1Tag == currentIngredients[1] &&
+                     combination.ingredient2Tag == currentIngredients[0] &&
+                     combination.bottleTag == currentBottle)
             {
                 return combination;
             }
         }
+
         return null;
     }
 
     private void ResetIngredientsAndBottle()
     {
         currentIngredients.Clear();
-        currentBottle = null;
+        currentBottle = string.Empty;
     }
 
     private void PlaySplashVFX()
     {
         if (splashVFX != null)
         {
-            Instantiate(splashVFX, spawnPotionPosition.position, Quaternion.identity);
+            splashVFX.Play();
         }
         else
         {
@@ -121,7 +137,7 @@ public class PotionCraftManager : MonoBehaviour
         ParticleSystem puffVFX = goodPuff ? goodPuffVFX : badPuffVFX;
         if (puffVFX != null)
         {
-            Instantiate(puffVFX, spawnPotionPosition.position, Quaternion.identity);
+            puffVFX.Play();
         }
         else
         {
@@ -131,10 +147,20 @@ public class PotionCraftManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ingredient") || collision.gameObject.CompareTag("Bottle"))
+        if (collision.gameObject.CompareTag("TruffleEyeball") ||
+            collision.gameObject.CompareTag("Artichoke") ||
+            collision.gameObject.CompareTag("GreenPetalScale") ||
+            collision.gameObject.CompareTag("Glistening Lead Blade") ||
+            collision.gameObject.CompareTag("MushyShroom") ||
+            collision.gameObject.CompareTag("DurableCap") ||
+            collision.gameObject.CompareTag("StemViscera") ||
+            collision.gameObject.CompareTag("vert") ||
+            collision.gameObject.CompareTag("round") ||
+            collision.gameObject.CompareTag("square"))
         {
             PlaySplashVFX();
-            AddIngredientOrBottle(collision.gameObject);
+            AddIngredientOrBottle(collision.gameObject.tag);
+            Destroy(collision.gameObject);
         }
     }
 }
