@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.XR;
 
 [Serializable]
 public class PotionCombination
@@ -32,12 +33,68 @@ public class PotionCraftManager : MonoBehaviour
     public ParticleSystem goodPuffVFX;
     public ParticleSystem badPuffVFX;
 
+    [Header("Recipe Book")]
+    public GameObject recipeBook;
+
     private void Update()
     {
         if (currentIngredients.Count == 2 && currentBottle.Length > 0)
         {
             CraftPotionFromIngredients();
             ResetIngredientsAndBottle();
+        }
+
+        CheckForRecipeBookToggle();
+    }
+
+    private void CheckForRecipeBookToggle()
+    {
+        InputDevice rightController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        
+        bool yButtonPressed = false;
+        bool xButtonPressed = false;
+        
+        if (rightController.TryGetFeatureValue(CommonUsages.primaryButton, out yButtonPressed) && yButtonPressed)
+        {
+            if (!wasYButtonPressed)
+            {
+                ToggleRecipeBook();
+            }
+            wasYButtonPressed = true;
+        }
+        else
+        {
+            wasYButtonPressed = false;
+        }
+        
+        if (leftController.TryGetFeatureValue(CommonUsages.primaryButton, out xButtonPressed) && xButtonPressed)
+        {
+            if (!wasXButtonPressed)
+            {
+                ToggleRecipeBook();
+            }
+            wasXButtonPressed = true;
+        }
+        else
+        {
+            wasXButtonPressed = false;
+        }
+    }
+
+    private bool wasYButtonPressed = false;
+    private bool wasXButtonPressed = false;
+
+    private void ToggleRecipeBook()
+    {
+        if (recipeBook != null)
+        {
+            recipeBook.SetActive(!recipeBook.activeSelf);
+            Debug.Log("Recipe book toggled: " + (recipeBook.activeSelf ? "ON" : "OFF"));
+        }
+        else
+        {
+            Debug.LogWarning("Recipe book GameObject not assigned.");
         }
     }
 
