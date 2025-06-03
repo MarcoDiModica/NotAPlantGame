@@ -13950,12 +13950,12 @@ MonoBehaviour:
   spawnAreaSize: {x: 0.83, y: 0.16, z: 0.55}
   dropNames:
   - Artichoke
-  - MushyShroom
-  - DurableCap
+  - Mushy Shroom
+  - Durable Cap
   - GreenPetalScale
   - Glistening Leaf Blade
-  - StemViscera
-  - TruffleEyeball
+  - Stem Viscera
+  - Truffle Eyeball
 --- !u!1001 &498644345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16448,7 +16448,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8829973, y: 3.8829973, z: 3.8829973}
+  m_LocalScale: {x: 2.5061283, y: 2.5061283, z: 2.5061283}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 15715754}
@@ -29082,7 +29082,7 @@ Transform:
   m_GameObject: {fileID: 1719080089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6703839, y: 2.9895928, z: 3.141264}
+  m_LocalPosition: {x: 4.1926613, y: 1.358358, z: -0.2337437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

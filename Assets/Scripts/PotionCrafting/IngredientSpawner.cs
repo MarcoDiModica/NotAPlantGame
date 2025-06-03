@@ -26,7 +26,7 @@ public class IngredientSpawner : MonoBehaviour
         for (int i = 0; i < dropNames.Length && i < ingredientPrefabs.Count; i++)
         {
             int dropAmount = PlayerPrefs.GetInt(dropNames[i], 0);
-            if (dropAmount < 2) dropAmount = 2;
+            if (dropAmount < 1) dropAmount = 1;
             
             for (int j = 0; j < dropAmount; j++)
             {
