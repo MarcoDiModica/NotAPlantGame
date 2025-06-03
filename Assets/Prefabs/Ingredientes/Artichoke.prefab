@@ -288,9 +288,9 @@ GameObject:
   - component: {fileID: 6680314379877629582}
   - component: {fileID: 6118354285557228177}
   m_Layer: 0
-  m_Name: Alcachofa
+  m_Name: Artichoke
   m_TagString: Ingredient
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

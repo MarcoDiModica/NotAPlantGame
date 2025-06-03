@@ -8,6 +8,7 @@ TagManager:
   - Bottle
   - Ingredient
   - Potion
+  - FX Block Zone
   layers:
   - Default
   - TransparentFX
