@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Order
@@ -28,15 +29,15 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private List<Order> possibleOrders;
     [SerializeField] private List<Order> completedOrders;
     [SerializeField] private Order currentOrder;
-    [SerializeField] private Queue<Order> pendingOrders; 
-    
+    [SerializeField] private Queue<Order> pendingOrders;
+
     [Header("Order Generation")]
     [SerializeField] private int ordersToGenerate = 10;
-    
+
     [Header("Delivery System")]
     [SerializeField] private List<GameObject> potionsInDelivery;
     [SerializeField] private TextMeshProUGUI orderText;
-    
+
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
 
@@ -52,7 +53,7 @@ public class OrderManager : MonoBehaviour
         {
             CompleteOrder();
         }
-        
+
         if (Input.GetKeyDown(KeyCode.O) && showDebugLogs)
         {
             ShowCurrentOrderInfo();
@@ -62,7 +63,7 @@ public class OrderManager : MonoBehaviour
     private void GenerateInitialOrders()
     {
         pendingOrders = new Queue<Order>();
-        
+
         if (possibleOrders.Count == 0)
         {
             Debug.LogError("No possible orders configured!");
@@ -73,16 +74,16 @@ public class OrderManager : MonoBehaviour
         {
             int randomIndex = UnityEngine.Random.Range(0, possibleOrders.Count);
             Order selectedOrder = possibleOrders[randomIndex];
-            
+
             Order newOrder = new Order
             {
                 customerName = selectedOrder.customerName,
                 requiredPotions = new List<PotionType>(selectedOrder.requiredPotions)
             };
-            
+
             pendingOrders.Enqueue(newOrder);
         }
-        
+
         if (showDebugLogs)
         {
             Debug.Log($"Generated {ordersToGenerate} orders. Orders in queue: {pendingOrders.Count}");
@@ -141,7 +142,7 @@ public class OrderManager : MonoBehaviour
             if (showDebugLogs) Debug.Log("No current order");
             return false;
         }
-        
+
         if (potionsInDelivery.Count != currentOrder.requiredPotions.Count)
         {
             if (showDebugLogs)
@@ -246,5 +247,10 @@ public class OrderManager : MonoBehaviour
     public int GetCompletedOrdersCount()
     {
         return completedOrders?.Count ?? 0;
+    }
+
+    public void GotoCombatScene()
+    {
+        SceneManager.LoadScene("CombatScene");
     }
 }
