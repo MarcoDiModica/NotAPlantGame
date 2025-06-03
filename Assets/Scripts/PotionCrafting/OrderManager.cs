@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [Serializable]
@@ -10,10 +11,11 @@ public class Order
     
     public string GetOrderInfo()
     {
-        string info = $"Customer: {customerName}\nRequired potions:\n";
+        string info = $"Customer: {customerName}\n\nRequired potions:\n";
         foreach (var potion in requiredPotions)
         {
             if (potion != null)
+                info += $"- {potion.name} ";
                 info += $"- {potion.GetPotionInfo()}\n";
         }
         return info;
@@ -33,6 +35,7 @@ public class OrderManager : MonoBehaviour
     
     [Header("Delivery System")]
     [SerializeField] private List<GameObject> potionsInDelivery;
+    [SerializeField] private TextMeshProUGUI orderText;
     
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
@@ -91,7 +94,8 @@ public class OrderManager : MonoBehaviour
         if (pendingOrders.Count > 0)
         {
             currentOrder = pendingOrders.Dequeue();
-            
+            orderText.text = currentOrder.GetOrderInfo();
+
             if (showDebugLogs)
             {
                 Debug.Log($"New order assigned:\n{currentOrder.GetOrderInfo()}");
@@ -101,6 +105,7 @@ public class OrderManager : MonoBehaviour
         else
         {
             currentOrder = null;
+            orderText.text = "No more orders available.";
             Debug.Log("No more orders available.");
         }
     }
@@ -120,6 +125,8 @@ public class OrderManager : MonoBehaviour
         }
         else
         {
+            AssignNextOrder();
+
             if (showDebugLogs)
             {
                 Debug.Log("Current order is not valid or already completed.");

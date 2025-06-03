@@ -30,7 +30,7 @@ public class PotionType : MonoBehaviour
 
     public string GetPotionInfo()
     {
-        return $"{potionName} (ID: {potionID})";
+        return $"{potionName}";
     }
 
     public bool IsSameType(PotionType other)
