@@ -7,6 +7,7 @@ public class Monster : MonoBehaviour
 {
     private int total_hp;
     public int hp;
+    public Material mat;
 
     [Header("Fields for attacking state")]
     public float baseTimer = 2f;

@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: UP
   m_EditorClassIdentifier: 
   stances:
-  - position: {x: -0.1, y: 0.17, z: 0.18}
-    rotation: {x: 341.6, y: 84, z: 179}
-  - position: {x: -0.03, y: 0.14, z: 0.16}
-    rotation: {x: 353, y: 104.33, z: 175.5}
+  - position: {x: 0.31, y: -0.02, z: 0.35}
+    rotation: {x: 357, y: 281, z: 171}
+  - position: {x: -0.15, y: -0.05, z: 0.21}
+    rotation: {x: 329.13, y: 56.43, z: 220.4}
+  - position: {x: 0.32, y: 0.16, z: 0.2}
+    rotation: {x: 356, y: 283, z: 192.04}
+  - position: {x: 0.23, y: 0.13, z: 0.22}
+    rotation: {x: 338.98, y: 284.9, z: 152.74}
   direction: 0
