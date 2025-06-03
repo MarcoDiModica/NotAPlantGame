@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mushy Shroom
   sprite: {fileID: 0}
-  chance: 1
+  chance: 0.45

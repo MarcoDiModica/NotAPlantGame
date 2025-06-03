@@ -30,16 +30,18 @@ public class EnemyDrop : MonoBehaviour
         for(int i = 0; i < 4 * multiplier; ++i)
         {
             float total = 0;
+            float value = Random.value;
 
             for(int j = 0; j < possible_drops.Length; ++j)
             {
-                if(Random.value >= total && Random.value < possible_drops[j].chance)
+                if(value >= total && value < possible_drops[j].chance + total)
                 {
-                    int current_amount = PlayerPrefs.GetInt(possible_drops[i].name);
-                    PlayerPrefs.SetInt(possible_drops[i].name, ++current_amount);
-                    drop_list.Add(possible_drops[i].name);
+                    int current_amount = PlayerPrefs.GetInt(possible_drops[j].name);
+                    PlayerPrefs.SetInt(possible_drops[j].name, ++current_amount);
+                    drop_list.Add(possible_drops[j].name);
                     break;
                 }
+                total += possible_drops[j].chance;
             }
 
         }

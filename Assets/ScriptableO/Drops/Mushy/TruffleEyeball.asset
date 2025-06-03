@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Truffle Eyeball
   sprite: {fileID: 0}
-  chance: 0.15
+  chance: 0.2
