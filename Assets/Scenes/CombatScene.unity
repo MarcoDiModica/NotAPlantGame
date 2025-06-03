@@ -14291,6 +14291,8 @@ MonoBehaviour:
   guards:
   - {fileID: 11400000, guid: cfe0b96d7eabd814d8696dc56079fbfa, type: 2}
   - {fileID: 11400000, guid: f95391e9671e0c74bac7e5b9e7dd2ed6, type: 2}
+  - {fileID: 11400000, guid: 87de2a6de7ee1514fbd6df4d318982bd, type: 2}
+  - {fileID: 11400000, guid: d322ce1cea5005744af3c732b1150f1e, type: 2}
   POSITION_WINDOW: 0.6
   ROTATION_WINDOW: 15
   playerHitEvent:
