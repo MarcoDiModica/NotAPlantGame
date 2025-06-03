@@ -16,6 +16,6 @@ MonoBehaviour:
   - direction: 1
     time: 0.7
   - direction: 2
-    time: 0.4
+    time: 0.65
   - direction: 1
-    time: 0.4
+    time: 0.65

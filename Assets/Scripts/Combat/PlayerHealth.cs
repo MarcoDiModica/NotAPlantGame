@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(health.CurrentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("DimensionalSpace");
         }
     }
 
