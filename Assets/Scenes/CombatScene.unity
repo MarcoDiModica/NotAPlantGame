@@ -14289,10 +14289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugText: {fileID: 2083014466}
   guards:
-  - {fileID: 11400000, guid: 1ee5f72663456b947bfeb86dd450c155, type: 2}
-  - {fileID: 11400000, guid: 513481aaf26237e4a8599b0b09e03017, type: 2}
-  - {fileID: 11400000, guid: 75ca670fb6764f94f926a59182b85c5e, type: 2}
-  - {fileID: 11400000, guid: d98cc4e7feec0984597e696d9c2a2564, type: 2}
+  - {fileID: 11400000, guid: cfe0b96d7eabd814d8696dc56079fbfa, type: 2}
+  - {fileID: 11400000, guid: f95391e9671e0c74bac7e5b9e7dd2ed6, type: 2}
   POSITION_WINDOW: 0.6
   ROTATION_WINDOW: 15
   playerHitEvent:

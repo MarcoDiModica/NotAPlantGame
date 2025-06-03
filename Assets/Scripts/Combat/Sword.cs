@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
 {
     private Transform hand;
     public TextMeshProUGUI debugText;
-    public Guards[] guards;
+    public Guard[] guards;
 
     public float POSITION_WINDOW = 0.6f;
     public float ROTATION_WINDOW = 12f;

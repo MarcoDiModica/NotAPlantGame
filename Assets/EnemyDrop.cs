@@ -25,15 +25,25 @@ public class EnemyDrop : MonoBehaviour
         if(multiplier < 0.5f) { multiplier = 0.5f; }
         List<string> drop_list = new List<string>();
 
-        for(int i = 0; i < possible_drops.Length; ++i)
+
+
+        for(int i = 0; i < 4 * multiplier; ++i)
         {
-            if (possible_drops[i].chance * multiplier >= Random.value)
+            float total = 0;
+
+            for(int j = 0; j < possible_drops.Length; ++j)
             {
-                int current_amount = PlayerPrefs.GetInt(possible_drops[i].name);
-                PlayerPrefs.SetInt(possible_drops[i].name, ++current_amount);
-                drop_list.Add(possible_drops[i].name);
+                if(Random.value >= total && Random.value < possible_drops[j].chance)
+                {
+                    int current_amount = PlayerPrefs.GetInt(possible_drops[i].name);
+                    PlayerPrefs.SetInt(possible_drops[i].name, ++current_amount);
+                    drop_list.Add(possible_drops[i].name);
+                    break;
+                }
             }
+
         }
+
         drop_event?.Invoke(drop_list.ToArray());
     }
 }
