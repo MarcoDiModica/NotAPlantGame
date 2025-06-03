@@ -7,17 +7,25 @@ public class MonsterSpawner : MonoBehaviour
 {
 
     public Monster prefab;
+    string aaaaaa;
     public static MonsterSpawner Instance;
 
     private void Awake()
     {
-        if (Instance != null) { Destroy(this.gameObject); }
-        else { Instance = this; }
-        DontDestroyOnLoad(this);
+       if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void SelectMonster(Monster monster_prefab)
+    public void SelectMonster(Monster monster_prefab, string bbbb ="a")
     {
+        aaaaaa = bbbb;
         prefab = monster_prefab;
         LoadSceneAsync("CombatScene");
     }
@@ -27,6 +35,7 @@ public class MonsterSpawner : MonoBehaviour
 
         CombatSpawner spawn = GameObject.FindAnyObjectByType<CombatSpawner>();
         if (spawn && prefab) spawn.SpawnEnemy(prefab);
+        print(aaaaaa);
     }
 
     public void LoadSceneAsync(string sceneName)
