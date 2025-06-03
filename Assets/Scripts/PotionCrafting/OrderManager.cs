@@ -106,7 +106,7 @@ public class OrderManager : MonoBehaviour
         else
         {
             currentOrder = null;
-            orderText.text = "No more orders available.";
+            orderText.text = "No more orders available. \n Go to HUNT scene to continue.";
             Debug.Log("No more orders available.");
         }
     }
